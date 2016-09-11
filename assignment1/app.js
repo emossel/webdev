@@ -10,7 +10,7 @@
         $scope.calculateIfTooMuch = function() {
             var numItems = numberOfCommaSeparatedItems($scope.userInput);
             var message;
-            if (numItems == 0) {
+            if (numItems === 0) {
                 message = "Please enter data first";
             } else if (numItems > 3) {
                 message = "Too much!";
@@ -22,6 +22,9 @@
         }
         
         function numberOfCommaSeparatedItems(string) {
+            if (!string) {
+              return 0;
+            }
             return string.trim().split(',').length;
         }
     }
